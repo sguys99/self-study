@@ -2,4 +2,4 @@ data
 model
 cache
 *.pkl
-exp1/
+exp*/
