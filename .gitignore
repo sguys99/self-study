@@ -3,3 +3,4 @@ model
 cache
 *.pkl
 exp*/
+*.zip
