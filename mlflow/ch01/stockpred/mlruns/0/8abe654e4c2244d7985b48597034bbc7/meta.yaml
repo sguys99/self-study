@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/km.yu99/Desktop/Project/mlflow_study/ch01/stockpred/mlruns/0/8abe654e4c2244d7985b48597034bbc7/artifacts
+end_time: 1644831206874
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 8abe654e4c2244d7985b48597034bbc7
+run_uuid: 8abe654e4c2244d7985b48597034bbc7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1644831203609
+status: 4
+tags: []
+user_id: km.yu99

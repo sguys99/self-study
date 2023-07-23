@@ -1,0 +1,14 @@
+artifact_path: anom_weight_50_fold_1
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    python_version: 3.8.12
+  sklearn:
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 0.24.1
+model_uuid: f46eb6f1c7304a778b2345070e36b885
+run_id: 1df7085f61d24a728307e3966d9fca95
+utc_time_created: '2022-04-12 05:32:15.589336'

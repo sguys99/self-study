@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/km.yu99/Desktop/Project/mlflow_study/example01/mlruns/0/917649e19e424089a6b3570a795c11aa/artifacts
+end_time: 1645007792191
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 917649e19e424089a6b3570a795c11aa
+run_uuid: 917649e19e424089a6b3570a795c11aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1645007787903
+status: 3
+tags: []
+user_id: km.yu99

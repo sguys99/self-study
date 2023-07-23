@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/km.yu99/Desktop/Project/mlflow_study/mlflow%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20mlops/mlruns/2/ddce1c111f0a4475b9c883c1600046b8/artifacts
+end_time: 1649740507552
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+name: ''
+run_id: ddce1c111f0a4475b9c883c1600046b8
+run_uuid: ddce1c111f0a4475b9c883c1600046b8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1649740503964
+status: 3
+tags: []
+user_id: km.yu99
