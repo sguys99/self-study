@@ -1,0 +1,304 @@
+digraph {
+    graph [ rankdir=LR ];
+     node [fontname = "Roboto Condensed"];
+    edge [fontname = "Roboto Thin"];
+    label = "First Random Forest Tree"
+    fontname = "Roboto Condensed"
+    
+
+    0 [ label="r<0.5" ]
+    0 -> 1 [label="yes, missing" color="#0000FF"]
+    0 -> 2 [label="no" color="#FF0000"]
+
+    1 [ label="major_cs<0.5" ]
+    1 -> 3 [label="yes, missing" color="#0000FF"]
+    1 -> 4 [label="no" color="#FF0000"]
+
+    3 [ label="Q3_United States of America<0.5" ]
+    3 -> 7 [label="yes, missing" color="#0000FF"]
+    3 -> 8 [label="no" color="#FF0000"]
+
+    7 [ label="years_exp<2.5" ]
+    7 -> 15 [label="yes, missing" color="#0000FF"]
+    7 -> 16 [label="no" color="#FF0000"]
+
+    15 [ label="major_stat<0.5" ]
+    15 -> 31 [label="yes, missing" color="#0000FF"]
+    15 -> 32 [label="no" color="#FF0000"]
+
+    31 [ label="age<23.5" ]
+    31 -> 57 [label="yes, missing" color="#0000FF"]
+    31 -> 58 [label="no" color="#FF0000"]
+
+    57 [ label="leaf=0.0042105238" ]
+
+    58 [ label="leaf=-0.00322580431" ]
+
+    32 [ label="Q3_China<0.5" ]
+    32 -> 59 [label="yes, missing" color="#0000FF"]
+    32 -> 60 [label="no" color="#FF0000"]
+
+    59 [ label="leaf=-0.0149999624" ]
+
+    60 [ label="leaf=0.00666662212" ]
+
+    16 [ label="years_exp<4.5" ]
+    16 -> 33 [label="yes, missing" color="#0000FF"]
+    16 -> 34 [label="no" color="#FF0000"]
+
+    33 [ label="age<23.5" ]
+    33 -> 61 [label="yes, missing" color="#0000FF"]
+    33 -> 62 [label="no" color="#FF0000"]
+
+    61 [ label="leaf=0.0199997984" ]
+
+    62 [ label="leaf=0.00518518128" ]
+
+    34 [ label="education<17" ]
+    34 -> 63 [label="yes, missing" color="#0000FF"]
+    34 -> 64 [label="no" color="#FF0000"]
+
+    63 [ label="leaf=0.0177777391" ]
+
+    64 [ label="leaf=0.00933332089" ]
+
+    8 [ label="years_exp<4.5" ]
+    8 -> 17 [label="yes, missing" color="#0000FF"]
+    8 -> 18 [label="no" color="#FF0000"]
+
+    17 [ label="major_eng<0.5" ]
+    17 -> 35 [label="yes, missing" color="#0000FF"]
+    17 -> 36 [label="no" color="#FF0000"]
+
+    35 [ label="compensation<15000" ]
+    35 -> 65 [label="yes, missing" color="#0000FF"]
+    35 -> 66 [label="no" color="#FF0000"]
+
+    65 [ label="leaf=-0.017241355" ]
+
+    66 [ label="leaf=-0.0118181771" ]
+
+    36 [ label="compensation<112500" ]
+    36 -> 67 [label="yes, missing" color="#0000FF"]
+    36 -> 68 [label="no" color="#FF0000"]
+
+    67 [ label="leaf=-0.000833332597" ]
+
+    68 [ label="leaf=-0.0133333039" ]
+
+    18 [ label="compensation<137500" ]
+    18 -> 37 [label="yes, missing" color="#0000FF"]
+    18 -> 38 [label="no" color="#FF0000"]
+
+    37 [ label="education<19" ]
+    37 -> 69 [label="yes, missing" color="#0000FF"]
+    37 -> 70 [label="no" color="#FF0000"]
+
+    69 [ label="leaf=0.00761904055" ]
+
+    70 [ label="leaf=-0.0107691977" ]
+
+    38 [ label="education<17" ]
+    38 -> 71 [label="yes, missing" color="#0000FF"]
+    38 -> 72 [label="no" color="#FF0000"]
+
+    71 [ label="leaf=0.0199997984" ]
+
+    72 [ label="leaf=-0.0133333039" ]
+
+    4 [ label="years_exp<3.5" ]
+    4 -> 9 [label="yes, missing" color="#0000FF"]
+    4 -> 10 [label="no" color="#FF0000"]
+
+    9 [ label="compensation<95000" ]
+    9 -> 19 [label="yes, missing" color="#0000FF"]
+    9 -> 20 [label="no" color="#FF0000"]
+
+    19 [ label="age<20" ]
+    19 -> 39 [label="yes, missing" color="#0000FF"]
+    19 -> 40 [label="no" color="#FF0000"]
+
+    39 [ label="compensation<5000" ]
+    39 -> 73 [label="yes, missing" color="#0000FF"]
+    39 -> 74 [label="no" color="#FF0000"]
+
+    73 [ label="leaf=-0.00222222065" ]
+
+    74 [ label="leaf=0.00588233862" ]
+
+    40 [ label="age<32.5" ]
+    40 -> 75 [label="yes, missing" color="#0000FF"]
+    40 -> 76 [label="no" color="#FF0000"]
+
+    75 [ label="leaf=0.00753424503" ]
+
+    76 [ label="leaf=-0.00399998901" ]
+
+    20 [ label="age<23.5" ]
+    20 -> 41 [label="yes, missing" color="#0000FF"]
+    20 -> 42 [label="no" color="#FF0000"]
+
+    41 [ label="education<17" ]
+    41 -> 77 [label="yes, missing" color="#0000FF"]
+    41 -> 78 [label="no" color="#FF0000"]
+
+    77 [ label="leaf=0.0199998394" ]
+
+    78 [ label="leaf=0.00999989919" ]
+
+    42 [ label="Q1_Male<0.5" ]
+    42 -> 79 [label="yes, missing" color="#0000FF"]
+    42 -> 80 [label="no" color="#FF0000"]
+
+    79 [ label="leaf=-0.00999989919" ]
+
+    80 [ label="leaf=-0.0133333039" ]
+
+    10 [ label="education<19.5" ]
+    10 -> 21 [label="yes, missing" color="#0000FF"]
+    10 -> 22 [label="no" color="#FF0000"]
+
+    21 [ label="age<21.5" ]
+    21 -> 43 [label="yes, missing" color="#0000FF"]
+    21 -> 44 [label="no" color="#FF0000"]
+
+    43 [ label="leaf=-0" ]
+
+    44 [ label="education<17" ]
+    44 -> 81 [label="yes, missing" color="#0000FF"]
+    44 -> 82 [label="no" color="#FF0000"]
+
+    81 [ label="leaf=0.015604388" ]
+
+    82 [ label="leaf=0.0111111058" ]
+
+    22 [ label="compensation<137500" ]
+    22 -> 45 [label="yes, missing" color="#0000FF"]
+    22 -> 46 [label="no" color="#FF0000"]
+
+    45 [ label="Q3_United States of America<0.5" ]
+    45 -> 83 [label="yes, missing" color="#0000FF"]
+    45 -> 84 [label="no" color="#FF0000"]
+
+    83 [ label="leaf=-0.00666662212" ]
+
+    84 [ label="leaf=0.0142856324" ]
+
+    46 [ label="leaf=-0.00999989919" ]
+
+    2 [ label="major_cs<0.5" ]
+    2 -> 5 [label="yes, missing" color="#0000FF"]
+    2 -> 6 [label="no" color="#FF0000"]
+
+    5 [ label="years_exp<22.5" ]
+    5 -> 11 [label="yes, missing" color="#0000FF"]
+    5 -> 12 [label="no" color="#FF0000"]
+
+    11 [ label="compensation<45000" ]
+    11 -> 23 [label="yes, missing" color="#0000FF"]
+    11 -> 24 [label="no" color="#FF0000"]
+
+    23 [ label="age<42.5" ]
+    23 -> 47 [label="yes, missing" color="#0000FF"]
+    23 -> 48 [label="no" color="#FF0000"]
+
+    47 [ label="Q1_Female<0.5" ]
+    47 -> 85 [label="yes, missing" color="#0000FF"]
+    47 -> 86 [label="no" color="#FF0000"]
+
+    85 [ label="leaf=-0.01550561" ]
+
+    86 [ label="leaf=-0.00947366375" ]
+
+    48 [ label="leaf=-0.00285712653" ]
+
+    24 [ label="years_exp<3.5" ]
+    24 -> 49 [label="yes, missing" color="#0000FF"]
+    24 -> 50 [label="no" color="#FF0000"]
+
+    49 [ label="age<27.5" ]
+    49 -> 87 [label="yes, missing" color="#0000FF"]
+    49 -> 88 [label="no" color="#FF0000"]
+
+    87 [ label="leaf=-0.0163636282" ]
+
+    88 [ label="leaf=-0.0188059583" ]
+
+    50 [ label="age<37.5" ]
+    50 -> 89 [label="yes, missing" color="#0000FF"]
+    50 -> 90 [label="no" color="#FF0000"]
+
+    89 [ label="leaf=-0.0121739032" ]
+
+    90 [ label="leaf=-0.0187878553" ]
+
+    12 [ label="years_exp<27.5" ]
+    12 -> 25 [label="yes, missing" color="#0000FF"]
+    12 -> 26 [label="no" color="#FF0000"]
+
+    25 [ label="major_other<0.5" ]
+    25 -> 51 [label="yes, missing" color="#0000FF"]
+    25 -> 52 [label="no" color="#FF0000"]
+
+    51 [ label="leaf=-0" ]
+
+    52 [ label="leaf=0.00999989919" ]
+
+    26 [ label="leaf=-0.0199998394" ]
+
+    6 [ label="years_exp<4.5" ]
+    6 -> 13 [label="yes, missing" color="#0000FF"]
+    6 -> 14 [label="no" color="#FF0000"]
+
+    13 [ label="compensation<137500" ]
+    13 -> 27 [label="yes, missing" color="#0000FF"]
+    13 -> 28 [label="no" color="#FF0000"]
+
+    27 [ label="age<27.5" ]
+    27 -> 53 [label="yes, missing" color="#0000FF"]
+    27 -> 54 [label="no" color="#FF0000"]
+
+    53 [ label="compensation<65000" ]
+    53 -> 91 [label="yes, missing" color="#0000FF"]
+    53 -> 92 [label="no" color="#FF0000"]
+
+    91 [ label="leaf=-0.00270270137" ]
+
+    92 [ label="leaf=-0.00947366375" ]
+
+    54 [ label="age<37.5" ]
+    54 -> 93 [label="yes, missing" color="#0000FF"]
+    54 -> 94 [label="no" color="#FF0000"]
+
+    93 [ label="leaf=-0.0152940815" ]
+
+    94 [ label="leaf=-0" ]
+
+    28 [ label="leaf=-0.0199998654" ]
+
+    14 [ label="python<0.5" ]
+    14 -> 29 [label="yes, missing" color="#0000FF"]
+    14 -> 30 [label="no" color="#FF0000"]
+
+    29 [ label="leaf=0.0199997984" ]
+
+    30 [ label="compensation<30000" ]
+    30 -> 55 [label="yes, missing" color="#0000FF"]
+    30 -> 56 [label="no" color="#FF0000"]
+
+    55 [ label="age<32.5" ]
+    55 -> 95 [label="yes, missing" color="#0000FF"]
+    55 -> 96 [label="no" color="#FF0000"]
+
+    95 [ label="leaf=0.00181817508" ]
+
+    96 [ label="leaf=-0.00399996759" ]
+
+    56 [ label="compensation<137500" ]
+    56 -> 97 [label="yes, missing" color="#0000FF"]
+    56 -> 98 [label="no" color="#FF0000"]
+
+    97 [ label="leaf=0.0199998859" ]
+
+    98 [ label="leaf=-0.00399996759" ]
+}
