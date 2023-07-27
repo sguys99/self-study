@@ -5,6 +5,7 @@ import subprocess
 
 import urllib.request
 import zipfile
+import xgboost as xgb
 
 
 def my_dot_export(xg, num_trees, filename, title="", direction="TB"):
