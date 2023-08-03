@@ -10,6 +10,10 @@ source = data.movies()
 
 st.dataframe(source.head())
 
+st.success(f"This is a success message.\n\
+           data shape : {source.shape}", 
+           icon = "✅")
+
 chart = alt.Chart(source).mark_bar().encode(
     alt.X("IMDB_Rating:Q", bin=True),
         y='count()',
