@@ -269,3 +269,174 @@ def my_dot_export(xg, num_trees, filename, title="", direction="TB"):
         fout.write(out)
     png_filename = dot_filename.replace(".dot", ".png")
     subprocess.run(f"dot -Gdpi=300 -Tpng -o{png_filename} {dot_filename}".split())
+
+
+from hyperopt import fmin, tpe, hp, STATUS_OK, Trials
+from sklearn.metrics import accuracy_score, roc_auc_score
+
+from typing import Any, Dict, Union
+
+
+def hyperparameter_tuning(
+    space: Dict[str, Union[float, int]],
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    X_test: pd.DataFrame,
+    y_test: pd.Series,
+    early_stopping_rounds: int = 50,
+    metric: callable = accuracy_score,
+) -> Dict[str, Any]:
+    """
+    Perform hyperparameter tuning for an XGBoost classifier.
+
+    This function takes a dictionary of hyperparameters, training
+    and test data, and an optional value for early stopping rounds,
+    and returns a dictionary with the loss and model resulting from
+    the tuning process. The model is trained using the training
+    data and evaluated on the test data. The loss is computed as
+    the negative of the accuracy score.
+
+    Parameters
+    ----------
+    space : Dict[str, Union[float, int]]
+        A dictionary of hyperparameters for the XGBoost classifier.
+    X_train : pd.DataFrame
+        The training data.
+    y_train : pd.Series
+        The training target.
+    X_test : pd.DataFrame
+        The test data.
+    y_test : pd.Series
+        The test target.
+    early_stopping_rounds : int, optional
+        The number of early stopping rounds to use. The default value
+        is 50.
+    metric : callable
+        Metric to maximize. Default is accuracy
+
+    Returns
+    -------
+    Dict[str, Any]
+        A dictionary with the loss and model resulting from the
+        tuning process. The loss is a float, and the model is an
+        XGBoost classifier.
+    """
+    int_vals = ["max_depth", "reg_alpha"]
+    space = {k: (int(val) if k in int_vals else val) for k, val in space.items()}
+    space["early_stopping_rounds"] = early_stopping_rounds
+    model = xgb.XGBClassifier(**space)
+    evaluation = [(X_train, y_train), (X_test, y_test)]
+    model.fit(X_train, y_train, eval_set=evaluation, verbose=False)
+
+    pred = model.predict(X_test)
+    score = metric(y_test, pred)
+    return {"loss": -score, "status": STATUS_OK, "model": model}
+
+
+import plotly.graph_objects as go
+
+
+def plot_3d_mesh(df: pd.DataFrame, x_col: str, y_col: str, z_col: str) -> go.Figure:
+    """
+    Create a 3D mesh plot using Plotly.
+
+    This function creates a 3D mesh plot using Plotly, with
+    the `x_col`, `y_col`, and `z_col` columns of the `df`
+    DataFrame as the x, y, and z values, respectively. The
+    plot has a title and axis labels that match the column
+    names, and the intensity of the mesh is proportional
+    to the values in the `z_col` column. The function returns
+    a Plotly Figure object that can be displayed or saved as
+    desired.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame containing the data to plot.
+    x_col : str
+        The name of the column to use as the x values.
+    y_col : str
+        The name of the column to use as the y values.
+    z_col : str
+        The name of the column to use as the z values.
+
+    Returns
+    -------
+    go.Figure
+        A Plotly Figure object with the 3D mesh plot.
+    """
+    fig = go.Figure(
+        data=[
+            go.Mesh3d(
+                x=df[x_col],
+                y=df[y_col],
+                z=df[z_col],
+                intensity=df[z_col] / df[z_col].min(),
+                hovertemplate=f"{z_col}: %{{z}}<br>{x_col}: %{{x}}<br>{y_col}: "
+                "%{{y}}<extra></extra>",
+            )
+        ],
+    )
+
+    fig.update_layout(
+        title=dict(text=f"{y_col} vs {x_col}"),
+        scene=dict(xaxis_title=x_col, yaxis_title=y_col, zaxis_title=z_col),
+        width=700,
+        margin=dict(r=20, b=10, l=10, t=50),
+    )
+    return fig
+
+
+import plotly.express as px
+import plotly.graph_objects as go
+
+
+def plot_3d_scatter(
+    df: pd.DataFrame,
+    x_col: str,
+    y_col: str,
+    z_col: str,
+    color_col: str,
+    opacity: float = 1,
+) -> go.Figure:
+    """
+    Create a 3D scatter plot using Plotly Express.
+
+    This function creates a 3D scatter plot using Plotly Express,
+    with the `x_col`, `y_col`, and `z_col` columns of the `df`
+    DataFrame as the x, y, and z values, respectively. The points
+    in the plot are colored according to the values in the
+    `color_col` column, using a continuous color scale. The
+    function returns a Plotly Express scatter_3d object that
+    can be displayed or saved as desired.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame containing the data to plot.
+    x_col : str
+        The name of the column to use as the x values.
+    y_col : str
+        The name of the column to use as the y values.
+    z_col : str
+        The name of the column to use as the z values.
+    color_col : str
+        The name of the column to use for coloring.
+    opacity : float
+        The opacity (alpha) of the points.
+
+    Returns
+    -------
+    go.Figure
+        A Plotly Figure object with the 3D mesh plot.
+    """
+    fig = px.scatter_3d(
+        data_frame=df,
+        x=x_col,
+        y=y_col,
+        z=z_col,
+        color=color_col,
+        color_continuous_scale=px.colors.sequential.Viridis_r,
+        opacity=opacity,
+    )
+    return fig
