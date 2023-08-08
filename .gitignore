@@ -5,3 +5,6 @@ cache
 exp*/
 *.zip
 __pycache__
+
+MNIST/
+lightning_logs
