@@ -12,3 +12,4 @@ lightning_logs
 
 mlruns/
 ex2path/
+mlflow/official/02.tutorial/mlflow/
