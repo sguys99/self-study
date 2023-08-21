@@ -8,3 +8,7 @@ __pycache__
 
 MNIST/
 lightning_logs
+
+
+mlruns/
+ex2path/
