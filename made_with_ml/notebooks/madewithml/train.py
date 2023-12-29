@@ -25,9 +25,9 @@ from torch.nn.parallel.distributed import DistributedDataParallel
 from transformers import BertModel
 from typing_extensions import Annotated
 
-from madewithml import data, utils
-from madewithml.config import EFS_DIR, MLFLOW_TRACKING_URI, logger
-from madewithml.models import FinetunedLLM
+import data, utils
+from config import EFS_DIR, MLFLOW_TRACKING_URI, logger
+from models import FinetunedLLM
 
 # Initialize Typer CLI app
 app = typer.Typer()
@@ -257,5 +257,5 @@ def train_model(
 if __name__ == "__main__":  # pragma: no cover, application
     if ray.is_initialized():
         ray.shutdown()
-    ray.init(runtime_env={"env_vars": {"GITHUB_USERNAME": os.environ["GITHUB_USERNAME"]}})
+    ray.init()
     app()
